@@ -1,0 +1,5 @@
+
+\item single program with 2 section for father and son;
+\item differen activity executed between father and son.
+
+Note: some libraries are not portable between systems.
