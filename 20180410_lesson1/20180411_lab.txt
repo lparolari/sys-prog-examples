@@ -1,0 +1,520 @@
+*** Intro
+
+------- Hardware:
+
+Sistemi di calcolo utilizzabili:
+- I PC dell'aula sono basati su Linux (macchina virtuale)
+
+------- Autenticazione:  
+
+per accedere al client usare il nome usato per labinfo
+(https://www.idem2.unipr.it/old/labinfo/join.php se non ci si e' registrati)
+
+Username: La stessa di AppostaPerTe (Nome.cognome -- senza @unipr.it)
+Password: La stessa di AppostaPerTe
+
+Home Directory: /home/studenti/nome.cognome
+Centralizzata su  didattica.sci.unipr.it 
+e distribuita via NFS.
+
+------- Modalita' lezioni:  
+
+Le lezioni di laboratorio durano circa 3 ore.
+Ogni lezione e' composta da una parte frontale che introduce gli argomenti
+e una parte di esercitazione assistita, in cui si approfondiscono e sperimentano
+i temi introdotti. A conclusione della lezione e' richiesto lo svolgimento di una
+piccola esercitazione che deve essere terminata possibilmente
+all'interno delle ore di laboratorio.
+
+L'attivita' dello studente deve essere svolta all'interno di una directory di
+lavoro specifica per ogni esercitazione, nominata con la data numerica (yymmdd) 
+di inizio dell'esercitazione.
+
+esempio: /home/studenti/nome.cognome/html/LSO1516/160317
+
+--------- Frequenza
+
+La frequenza non e' obbligatoria, ma fortemente consigliata per
+otternere i massimi benefici dal corso.
+
+--------- Esami e prove pratiche
+
+Le esercitazioni e loro documentazione costituiscono *parte integrante*
+della valutazione finale. E' consigliabile usare la massima interazione
+con il docente durante le ore di lezione per la miglior resa del corso.
+
+--------- Per seguire la lezione 
+
+Sotto Linux, si utilizza il viewer di vnc:
+
+vncviewer xxx.xxx.xxx.xxx
+
+dove l'ip del server verra' comunicato dal docente
+(Lanciare il comando dal terminale)
+
+-------- Documentazione Tecnica:
+
+Le attivita' di documentazione tecnica (compresa la documentazione 
+del progetto finale) devono essere realizzate preferibilmente in latex.
+
+-------- Documentazione del Codice:
+
+Il codice prodotto deve essere debitamente commentato, 
+possibilmente con strumenti di autogenerazione (doxygen , javadoc, ecc)
+
+-------- Contatti
+Mail: alessandro.dalpalu@unipr.it
+
+
+
+
+*** Processi
+
+ps ef // mostra processi utente lanciati da terminale con relativi parametri.
+
+  PID TTY      STAT   TIME COMMAND
+ 3303 pts/1    Ss     0:00 bash XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg LC_
+16519 pts/1    R+     0:00  \_ ps ef CLUTTER_IM_MODULE=xim LS_COLORS=rs=0:di=01;
+  884 tty2     Ssl+   0:00 /usr/lib/gdm3/gdm-wayland-session env GNOME_SHELL_SES
+  888 tty2     Sl+    0:00  \_ /usr/lib/gnome-session/gnome-session-binary --ses
+  971 tty2     Rl+   12:48      \_ /usr/bin/gnome-shell USER=foo LC_TIME=it_IT.U
+  978 tty2     S+     0:13      |   \_ /usr/bin/Xwayland :0 -rootless -terminate
+ 1018 tty2     Rl     0:01      |   \_ ibus-daemon --xim --panel disable USER=fo
+ 1022 tty2     Sl     0:00      |   |   \_ /usr/lib/ibus/ibus-dconf USER=foo LC_
+ 1278 tty2     Sl     0:00      |   |   \_ /usr/lib/ibus/ibus-engine-simple USER
+16512 tty2     Sl+    0:00      |   \_ /usr/bin/emacs25 USER=foo LC_TIME=it_IT.U
+ 1074 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-mouse USER
+ 1077 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-power USER
+ 1082 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-print-noti
+ 1083 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-rfkill USE
+ 1086 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-screensave
+ 1088 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-sharing US
+ 1092 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-smartcard
+ 1096 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-wacom USER
+ 1097 tty2     Sl+    0:02      \_ /usr/lib/gnome-settings-daemon/gsd-xsettings
+ 1105 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-sound USER
+ 1125 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-a11y-keybo
+ 1126 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-a11y-setti
+ 1128 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-clipboard
+ 1131 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-color USER
+ 1133 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-datetime U
+ 1135 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-housekeepi
+ 1136 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-keyboard U
+ 1139 tty2     Sl+    0:00      \_ /usr/lib/gnome-settings-daemon/gsd-media-keys
+ 1200 tty2     SLl+   0:01      \_ /usr/bin/gnome-software --gapplication-servic
+ 1201 tty2     Sl+    0:00      \_ /usr/lib/gnome-disk-utility/gsd-disk-utility-
+ 1202 tty2     S+     0:00      \_ kerneloops-applet USER=foo LC_TIME=it_IT.UTF-
+ 1207 tty2     Sl+    0:14      \_ nautilus-desktop USER=foo LC_TIME=it_IT.UTF-8
+ 1536 tty2     Sl+    0:00      \_ update-notifier USER=foo LC_TIME=it_IT.UTF-8
+ 2257 tty2     Sl+    0:00      \_ /usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-m
+ 2602 tty2     Sl+    1:46 /usr/lib/firefox/firefox -new-window GJS_DEBUG_TOPICS
+ 2683 tty2     Sl+    3:58  \_ /usr/lib/firefox/firefox -contentproc -childID 1 
+ 3234 tty2     Sl+    1:26  \_ /usr/lib/firefox/firefox -contentproc -childID 4 
+ 3261 tty2     Sl+    1:48  \_ /usr/lib/firefox/firefox -contentproc -childID 5 
+ 6575 tty2     Sl+    0:18  \_ /usr/lib/firefox/firefox -contentproc -childID 6 
+ 1157 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-printer USER=foo L
+ 1024 tty2     Sl     0:00 /usr/lib/ibus/ibus-x11 --kill-daemon USER=foo LC_TIME
+
+
+
+ps -efa
+
+foo@vtest:~$ ps -efa
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 09:18 ?        00:00:04 /sbin/init splash
+root         2     0  0 09:18 ?        00:00:00 [kthreadd]
+root         4     2  0 09:18 ?        00:00:00 [kworker/0:0H]
+root         6     2  0 09:18 ?        00:00:00 [mm_percpu_wq]
+root         7     2  0 09:18 ?        00:00:05 [ksoftirqd/0]
+root         8     2  0 09:18 ?        00:00:12 [rcu_sched]
+root         9     2  0 09:18 ?        00:00:00 [rcu_bh]
+root        10     2  0 09:18 ?        00:00:00 [migration/0]
+root        11     2  0 09:18 ?        00:00:00 [watchdog/0]
+root        12     2  0 09:18 ?        00:00:00 [cpuhp/0]
+root        13     2  0 09:18 ?        00:00:00 [kdevtmpfs]
+root        14     2  0 09:18 ?        00:00:00 [netns]
+root        15     2  0 09:18 ?        00:00:00 [khungtaskd]
+root        16     2  0 09:18 ?        00:00:00 [oom_reaper]
+root        17     2  0 09:18 ?        00:00:00 [writeback]
+root        18     2  0 09:18 ?        00:00:00 [kcompactd0]
+root        19     2  0 09:18 ?        00:00:00 [ksmd]
+root        20     2  0 09:18 ?        00:00:00 [khugepaged]
+root        21     2  0 09:18 ?        00:00:00 [crypto]
+root        22     2  0 09:18 ?        00:00:00 [kintegrityd]
+root        23     2  0 09:18 ?        00:00:00 [kblockd]
+root        24     2  0 09:18 ?        00:00:00 [ata_sff]
+root        25     2  0 09:18 ?        00:00:00 [md]
+root        26     2  0 09:18 ?        00:00:00 [edac-poller]
+root        27     2  0 09:18 ?        00:00:00 [devfreq_wq]
+root        28     2  0 09:18 ?        00:00:00 [watchdogd]
+root        30     2  0 09:18 ?        00:00:01 [kworker/0:1]
+root        32     2  0 09:18 ?        00:00:00 [kauditd]
+root        33     2  0 09:18 ?        00:00:01 [kswapd0]
+root        34     2  0 09:18 ?        00:00:00 [ecryptfs-kthrea]
+root        76     2  0 09:18 ?        00:00:00 [kthrotld]
+root        77     2  0 09:18 ?        00:00:00 [acpi_thermal_pm]
+root        78     2  0 09:18 ?        00:00:00 [scsi_eh_0]
+root        79     2  0 09:18 ?        00:00:00 [scsi_tmf_0]
+root        80     2  0 09:18 ?        00:00:00 [scsi_eh_1]
+root        81     2  0 09:18 ?        00:00:00 [scsi_tmf_1]
+root        87     2  0 09:18 ?        00:00:00 [ipv6_addrconf]
+root       112     2  0 09:18 ?        00:00:00 [charger_manager]
+root       151     2  0 09:18 ?        00:00:00 [kworker/0:2]
+root       154     2  0 09:18 ?        00:00:02 [kworker/0:1H]
+root       155     2  0 09:18 ?        00:00:00 [scsi_eh_2]
+root       156     2  0 09:18 ?        00:00:00 [scsi_tmf_2]
+root       177     2  0 09:18 ?        00:00:01 [jbd2/sda1-8]
+root       178     2  0 09:18 ?        00:00:00 [ext4-rsv-conver]
+root       212     1  0 09:18 ?        00:00:00 /lib/systemd/systemd-journald
+root       220     1  0 09:18 ?        00:00:00 /lib/systemd/systemd-udevd
+systemd+   253     1  0 09:18 ?        00:00:00 /lib/systemd/systemd-timesyncd
+root       264     2  0 09:18 ?        00:00:00 [iprt-VBoxWQueue]
+root       269     2  0 09:18 ?        00:00:00 [ttm_swap]
+root       414     1  0 09:18 ?        00:00:00 /usr/lib/accountsservice/account
+root       415     1  0 09:18 ?        00:00:00 /usr/sbin/cupsd -l
+root       418     1  0 09:18 ?        00:00:00 /usr/sbin/cron -f
+syslog     419     1  0 09:18 ?        00:00:00 /usr/sbin/rsyslogd -n
+root       420     1  0 09:18 ?        00:00:00 /lib/systemd/systemd-logind
+avahi      426     1  0 09:18 ?        00:00:00 avahi-daemon: running [vtest.loc
+avahi      430   426  0 09:18 ?        00:00:00 avahi-daemon: chroot helper
+root       431     1  0 09:18 ?        00:00:00 /usr/sbin/acpid
+root       433     1  0 09:18 ?        00:00:00 /usr/lib/udisks2/udisksd
+message+   437     1  0 09:18 ?        00:00:00 /usr/bin/dbus-daemon --system --
+root       469     1  0 09:18 ?        00:00:00 /usr/sbin/cups-browsed
+root       470     1  0 09:18 ?        00:00:00 /usr/sbin/NetworkManager --no-da
+root       471     1  0 09:18 ?        00:00:00 /usr/sbin/ModemManager
+root       475     1  0 09:18 ?        00:00:00 /usr/lib/snapd/snapd
+root       520     1  0 09:18 ?        00:00:00 /usr/lib/policykit-1/polkitd --n
+systemd+   567     1  0 09:18 ?        00:00:00 /lib/systemd/systemd-resolved
+root       588     1  0 09:18 ?        00:00:00 /usr/sbin/gdm3
+root       627   588  0 09:18 ?        00:00:00 gdm-session-worker [pam/gdm-laun
+root       640   470  0 09:18 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/li
+gdm        641     1  0 09:18 ?        00:00:00 /lib/systemd/systemd --user
+gdm        642   641  0 09:18 ?        00:00:00 (sd-pam)
+gdm        647   627  0 09:18 tty1     00:00:00 /usr/lib/gdm3/gdm-wayland-sessio
+gdm        650   641  0 09:18 ?        00:00:00 /usr/bin/dbus-daemon --session -
+gdm        659   647  0 09:18 tty1     00:00:00 /usr/lib/gnome-session/gnome-ses
+whoopsie   670     1  0 09:18 ?        00:00:00 /usr/bin/whoopsie -f
+kernoops   679     1  0 09:18 ?        00:00:00 /usr/sbin/kerneloops
+gdm        697   659  0 09:18 tty1     00:00:05 /usr/bin/gnome-shell
+root       705     1  0 09:18 ?        00:00:00 /usr/lib/upower/upowerd
+gdm        715   697  0 09:18 tty1     00:00:00 /usr/bin/Xwayland :1024 -rootles
+gdm        718   641  0 09:18 ?        00:00:00 /usr/lib/at-spi2-core/at-spi-bus
+gdm        723   718  0 09:18 ?        00:00:00 /usr/bin/dbus-daemon --config-fi
+gdm        725   641  0 09:18 ?        00:00:00 /usr/lib/at-spi2-core/at-spi2-re
+gdm        728   641  0 09:18 ?        00:00:00 /usr/bin/pulseaudio --daemonize=
+rtkit      730     1  0 09:18 ?        00:00:00 /usr/lib/rtkit/rtkit-daemon
+gdm        741   697  0 09:18 tty1     00:00:00 ibus-daemon --xim --panel disabl
+gdm        744   741  0 09:18 tty1     00:00:00 /usr/lib/ibus/ibus-dconf
+gdm        748     1  0 09:18 tty1     00:00:00 /usr/lib/ibus/ibus-x11 --kill-da
+root       761     1  0 09:18 ?        00:00:00 /sbin/wpa_supplicant -u -s -O /r
+root       762     1  0 09:18 ?        00:00:01 /usr/lib/packagekit/packagekitd
+gdm        763   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        768   659  0 09:18 tty1     00:00:02 /usr/lib/gnome-settings-daemon/g
+gdm        770   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        771   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        772   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        774   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        776   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        778   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        780   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        785   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        789   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        791   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        796   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        800   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        801   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        806   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        810   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+gdm        816   659  0 09:18 tty1     00:00:00 /usr/lib/gnome-settings-daemon/g
+colord     830     1  0 09:18 ?        00:00:00 /usr/lib/colord/colord
+gdm        858   741  0 09:18 tty1     00:00:00 /usr/lib/ibus/ibus-engine-simple
+root       868   588  0 09:18 ?        00:00:00 gdm-session-worker [pam/gdm-pass
+foo        872     1  0 09:18 ?        00:00:00 /lib/systemd/systemd --user
+foo        873   872  0 09:18 ?        00:00:00 (sd-pam)
+foo        880     1  0 09:18 ?        00:00:00 /usr/bin/gnome-keyring-daemon --
+foo        884   868  0 09:18 tty2     00:00:00 /usr/lib/gdm3/gdm-wayland-sessio
+foo        886   872  0 09:18 ?        00:00:00 /usr/bin/dbus-daemon --session -
+foo        888   884  0 09:18 tty2     00:00:00 /usr/lib/gnome-session/gnome-ses
+foo        943   872  0 09:18 ?        00:00:00 /usr/lib/gvfs/gvfsd
+foo        948   872  0 09:18 ?        00:00:00 /usr/lib/gvfs/gvfsd-fuse /run/us
+foo        971   888 22 09:18 tty2     00:13:10 /usr/bin/gnome-shell
+foo        978   971  0 09:18 tty2     00:00:13 /usr/bin/Xwayland :0 -rootless -
+foo        982   872  0 09:18 ?        00:00:00 /usr/lib/at-spi2-core/at-spi-bus
+foo        987   982  0 09:18 ?        00:00:00 /usr/bin/dbus-daemon --config-fi
+foo        989   872  0 09:18 ?        00:00:00 /usr/lib/at-spi2-core/at-spi2-re
+foo        995     1  0 09:18 ?        00:00:01 /usr/bin/pulseaudio --start --lo
+foo       1005   872  0 09:18 ?        00:00:00 /usr/lib/gnome-shell/gnome-shell
+foo       1009   872  0 09:18 ?        00:00:00 /usr/lib/evolution/evolution-sou
+foo       1015   872  0 09:18 ?        00:00:00 /usr/lib/gnome-online-accounts/g
+foo       1018   971  0 09:18 tty2     00:00:01 ibus-daemon --xim --panel disabl
+foo       1022  1018  0 09:18 tty2     00:00:00 /usr/lib/ibus/ibus-dconf
+foo       1024     1  0 09:18 tty2     00:00:00 /usr/lib/ibus/ibus-x11 --kill-da
+foo       1034   872  0 09:18 ?        00:00:00 /usr/lib/gnome-online-accounts/g
+foo       1050   872  0 09:18 ?        00:00:00 /usr/lib/gvfs/gvfs-udisks2-volum
+foo       1054   872  0 09:18 ?        00:00:00 /usr/lib/gvfs/gvfs-goa-volume-mo
+foo       1058   872  0 09:18 ?        00:00:00 /usr/lib/gvfs/gvfs-afc-volume-mo
+foo       1063   872  0 09:18 ?        00:00:00 /usr/lib/gvfs/gvfs-gphoto2-volum
+foo       1067   872  0 09:18 ?        00:00:00 /usr/lib/gvfs/gvfs-mtp-volume-mo
+foo       1074   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1077   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1082   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1083   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1086   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1088   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1092   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1096   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1097   888  0 09:18 tty2     00:00:02 /usr/lib/gnome-settings-daemon/g
+foo       1105   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1125   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1126   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1128   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1131   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1133   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1135   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1136   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1139   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1157     1  0 09:18 tty2     00:00:00 /usr/lib/gnome-settings-daemon/g
+foo       1200   888  0 09:18 tty2     00:00:01 /usr/bin/gnome-software --gappli
+foo       1201   888  0 09:18 tty2     00:00:00 /usr/lib/gnome-disk-utility/gsd-
+foo       1202   888  0 09:18 tty2     00:00:00 kerneloops-applet
+foo       1207   888  0 09:18 tty2     00:00:14 nautilus-desktop
+foo       1214   872  0 09:18 ?        00:00:00 /usr/lib/gvfs/gvfsd-trash --spaw
+foo       1227   872  0 09:18 ?        00:00:00 /usr/lib/evolution/evolution-cal
+foo       1234  1227  0 09:18 ?        00:00:00 /usr/lib/evolution/evolution-cal
+foo       1242   872  0 09:18 ?        00:00:00 /usr/lib/dconf/dconf-service
+foo       1247   872  0 09:18 ?        00:00:00 /usr/lib/evolution/evolution-add
+foo       1249  1227  0 09:18 ?        00:00:00 /usr/lib/evolution/evolution-cal
+foo       1265  1247  0 09:18 ?        00:00:00 /usr/lib/evolution/evolution-add
+foo       1278  1018  0 09:18 tty2     00:00:00 /usr/lib/ibus/ibus-engine-simple
+root      1290     1  0 09:18 ?        00:00:00 /usr/lib/fwupd/fwupd
+foo       1536   888  0 09:19 tty2     00:00:00 update-notifier
+foo       2257   888  0 09:20 tty2     00:00:00 /usr/lib/x86_64-linux-gnu/deja-d
+root      2501     2  0 09:33 ?        00:00:00 [kworker/u2:1]
+foo       2602     1  4 09:38 tty2     00:01:48 /usr/lib/firefox/firefox -new-wi
+foo       2683  2602 10 09:38 tty2     00:03:58 /usr/lib/firefox/firefox -conten
+foo       3043   872  0 09:50 ?        00:00:05 /usr/lib/gnome-terminal/gnome-te
+foo       3096   872  0 09:51 ?        00:00:10 /usr/bin/nautilus --gapplication
+foo       3113   872  0 09:51 ?        00:00:00 /usr/lib/gvfs/gvfsd-network --sp
+foo       3120   872  0 09:51 ?        00:00:00 /usr/lib/gvfs/gvfsd-smb-browse -
+foo       3128   872  0 09:51 ?        00:00:00 /usr/lib/gvfs/gvfsd-dnssd --spaw
+root      3139     2  0 09:51 ?        00:00:00 [kworker/u2:3]
+foo       3234  2602  6 09:57 tty2     00:01:26 /usr/lib/firefox/firefox -conten
+foo       3261  2602  8 09:57 tty2     00:01:50 /usr/lib/firefox/firefox -conten
+foo       3303  3043  0 09:57 pts/1    00:00:00 bash
+root      6166     1  0 10:04 ?        00:00:00 /usr/sbin/anacron -dsq
+foo       6575  2602  2 10:07 tty2     00:00:18 /usr/lib/firefox/firefox -conten
+foo      16512   971  1 10:15 tty2     00:00:02 /usr/bin/emacs25
+foo      16523  3303  0 10:18 pts/1    00:00:00 ps -efa
+
+
+
+*** Man
+
+manuale interattivo per ogni programma
+
+
+
+
+*** Edit riga di comando
+
+•Ctrl-a  :  va  ad inizio  riga
+•Ctrl-e  :  va  a fine  riga
+•Ctrl-k :  cancella  il resto  della riga
+•Ctrl-y: reinserisce la  stringa  cancellata
+La  shell registra  i comandi  inseriti dall’utente.
+•history: elenca  i  comandi digitati  in  precedenza
+•!10: richiama  il  decimo comando  dell’history
+•!!: richama il  comando precedente
+•!abc: richiama  l’ultimo  comando immesso  che  comincia per  abc
+•↑↓: naviga nella  history
+•Tab:  completa  il  comando o  il  nome del  file  parzialmente digitato
+
+
+*** Tab completion
+
+
+** File
+
+- ordinari,
+- directory,
+- speciali.
+
+
+      / (root)
+
+dev  bin  home
+
+
+ls /dev/      #device
+
+foo@vtest:~$ ls /dev/
+autofs           loop3               stderr  tty34  tty63      ttyS5
+block            loop4               stdin   tty35  tty7       ttyS6
+bsg              loop5               stdout  tty36  tty8       ttyS7
+btrfs-control    loop6               tty     tty37  tty9       ttyS8
+bus              loop7               tty0    tty38  ttyprintk  ttyS9
+cdrom            loop-control        tty1    tty39  ttyS0      uhid
+char             mapper              tty10   tty4   ttyS1      uinput
+console          mcelog              tty11   tty40  ttyS10     urandom
+core             mem                 tty12   tty41  ttyS11     userio
+cpu_dma_latency  memory_bandwidth    tty13   tty42  ttyS12     vboxguest
+cuse             mqueue              tty14   tty43  ttyS13     vboxuser
+disk             net                 tty15   tty44  ttyS14     vcs
+dri              network_latency     tty16   tty45  ttyS15     vcs1
+dvd              network_throughput  tty17   tty46  ttyS16     vcs2
+ecryptfs         null                tty18   tty47  ttyS17     vcs3
+fb0              port                tty19   tty48  ttyS18     vcs4
+fd               ppp                 tty2    tty49  ttyS19     vcs5
+full             psaux               tty20   tty5   ttyS2      vcs6
+fuse             ptmx                tty21   tty50  ttyS20     vcsa
+hidraw0          pts                 tty22   tty51  ttyS21     vcsa1
+hpet             random              tty23   tty52  ttyS22     vcsa2
+hugepages        rfkill              tty24   tty53  ttyS23     vcsa3
+hwrng            rtc                 tty25   tty54  ttyS24     vcsa4
+i2c-0            rtc0                tty26   tty55  ttyS25     vcsa5
+initctl          sda                 tty27   tty56  ttyS26     vcsa6
+input            sda1                tty28   tty57  ttyS27     vfio
+kmsg             sg0                 tty29   tty58  ttyS28     vga_arbiter
+lightnvm         sg1                 tty3    tty59  ttyS29     vhci
+log              shm                 tty30   tty6   ttyS3      vhost-net
+loop0            snapshot            tty31   tty60  ttyS30     vhost-vsock
+loop1            snd                 tty32   tty61  ttyS31     zero
+loop2            sr0                 tty33   tty62  ttyS4
+
+
+
+ls /bin/    #eseguibili
+
+foo@vtest:~$ ls /bin/
+bash           fusermount     ntfs-3g        su
+bunzip2        getfacl        ntfs-3g.probe  sync
+busybox        grep           ntfscat        systemctl
+bzcat          gunzip         ntfscluster    systemd
+bzcmp          gzexe          ntfscmp        systemd-ask-password
+bzdiff         gzip           ntfsfallocate  systemd-escape
+bzegrep        hciconfig      ntfsfix        systemd-hwdb
+bzexe          hostname       ntfsinfo       systemd-inhibit
+bzfgrep        ip             ntfsls         systemd-machine-id-setup
+bzgrep         journalctl     ntfsmove       systemd-notify
+bzip2          kbd_mode       ntfsrecover    systemd-sysusers
+bzip2recover   kill           ntfssecaudit   systemd-tmpfiles
+bzless         kmod           ntfstruncate   systemd-tty-ask-password-agent
+bzmore         less           ntfsusermap    tar
+cat            lessecho       ntfswipe       tempfile
+chacl          lessfile       open           touch
+chgrp          lesskey        openvt         true
+chmod          lesspipe       pidof          udevadm
+chown          ln             ping           ulockmgr_server
+chvt           loadkeys       ping4          umount
+cp             login          ping6          uname
+cpio           loginctl       plymouth       uncompress
+dash           lowntfs-3g     ps             unicode_start
+date           ls             pwd            vdir
+dd             lsblk          rbash          wdctl
+df             lsmod          readlink       which
+dir            mkdir          red            whiptail
+dmesg          mknod          rm             ypdomainname
+dnsdomainname  mktemp         rmdir          zcat
+domainname     more           rnano          zcmp
+dumpkeys       mount          run-parts      zdiff
+echo           mountpoint     sed            zegrep
+ed             mt             setfacl        zfgrep
+efibootdump    mt-gnu         setfont        zforce
+efibootmgr     mv             setupcon       zgrep
+egrep          nano           sh             zless
+false          nc             sh.distrib     zmore
+fgconsole      nc.openbsd     sleep          znew
+fgrep          netcat         ss
+findmnt        networkctl     static-sh
+fuser          nisdomainname  stty
+
+
+
+*** Directory Unix
+
+/	       E’  la radice  della gerarchia
+/bin	       Comandi  per  l’utente
+/sbin	       Comandi  di amministrazione
+/dev	       Dispositivi di  I/O
+/etc	       File  di configurazione  del sistema
+/lib	       Librerie
+/var	       File  di dimensione  variabile (es:  logs,  mailbox)
+/usr	       Programmi  e applicazioni
+/home	       Directory  personali  degli  utenti
+/proc	       Contiene  informazioni dinamiche  di  sistema
+
+
+etc: Le configurazioni sono tutte in sola lettura per gli utenti "normali"
+var: tutte le cose che cambiano nel tempo (es dati di una mailbox..)
+usr: app
+proc: informazioni dei processi
+
+
+
+*** Pwd: present working directory
+
+*** Tilde: home directory (casa)
+
+*** Path
+ - relativo
+ - assoluto
+
+ cd
+ cd ..
+ cd .
+ 
+*** Ls
+
+ls -l
+
+foo@vtest:~$ ls -l
+total 44
+drwxr-xr-x 2 foo foo 4096 apr  9 22:27 Desktop
+drwxr-xr-x 2 foo foo 4096 apr  9 22:27 Documents
+drwxr-xr-x 2 foo foo 4096 apr  9 22:27 Downloads
+-rw-r--r-- 1 foo foo 8980 apr  9 22:21 examples.desktop
+drwxr-xr-x 2 foo foo 4096 apr  9 22:27 Music
+drwxr-xr-x 2 foo foo 4096 apr  9 22:27 Pictures
+drwxr-xr-x 2 foo foo 4096 apr  9 22:27 Public
+drwxr-xr-x 2 foo foo 4096 apr  9 22:27 Templates
+drwxr-xr-x 2 foo foo 4096 apr  9 22:27 Videos
+
+
+Permessi: -: file normale
+	  d: directory
+
+9 bit per gli altri permessi
+
+rwe r: read
+    w: write
+    x: execute
+
+x su directory vuol dire che ci si puà entrare.
+
+primi 3 bit: utente
+secondi 3 bit: gruppo
+ultimi 3 bit: tutti gli altri "nemici"
+
+chmod: change modality - cambia il permesso sui file
+si cambia in ottale 111 = [0-7] in ottale -> 744 = 111 100 100
+
+
+umask: permessi da togliere sui nuovi file e directory al moento della creazione.
+
+foo@vtest:~$ umask
+0022
+
+tolgo al gruppo e agli altri la possibiltà di eseguire e scrivere
+
+umask 027 -> toglie tutti i permessi agli altri
+
+nb: umask rimane attivo per il tepmpo di vita della shell che l'ha lanciato
+
+
+*** Comandi file
+
+cat
+more
+tail
+head
