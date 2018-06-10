@@ -1,0 +1,88 @@
+Linux has different abstractions for synconizing anc communicating:
+\item Unix pipe: between 2 process throught stream;
+\item Unix RPC
+\item Unix Signals
+\item BSD Socket
+\item SysV IPC (83) InterProcess Communication
+  • Sezioni di memoria condivisa ( shmget() shmctl() .... )
+  • Sincronizzazione con semafori ( semget() semctl() ... )
+\item Pthread:
+  • Comunicazione a memoria condivisa tra piu thread
+  • Sincronizzazione con semafori ( pthread mutex *() 
+
+pipe(fd) is not shared memory (see man).
+
+
+
+IPC: Inter Process Communication
+
+Every IPC object has an id. 
+If two process uses the same IPC, they has to share a key. 
+The key is generated with a pathname (for rights) and an id. Every process that can access a directory can request the same key, then, for each directory we can generate 256 different key.
+Shared memory is not deleted with process until the system is stoppped.
+Shared memory specs: r/w
+
+int shmget(eky, size, flags) // shared memory
+// return id of shared memory
+
+The shared memory needs to be attached to process in order to allow the process to access to this memory (adding it to page table).
+
+IPC control:
+ int <ipc>ctl (...) // controller for IPCs
+
+
+
+------ Segm. Memoria Condivisa --------
+chiave     shmid      proprietario perms      byte       nattch     stato       
+0x00000000 131072     274404     700        8110080    2          dest         
+0x00000000 163841     274404     700        21912      2          dest         
+0x00000000 65538      274404     700        13860      2          dest         
+0x00000000 98307      274404     700        184320     2          dest         
+0x00000000 196612     274404     700        18084      2          dest         
+0x00000000 229381     274404     700        25476      2          dest         
+0x00000000 262150     274404     700        27720      2          dest         
+0x00000000 294919     274404     700        21780      2          dest         
+0x00000000 327688     274404     600        393216     2          dest         
+0x00000000 360457     274404     700        23496      2          dest         
+0x00000000 491530     274404     700        30888      2          dest         
+0x00000000 524299     274404     700        20196      2          dest         
+0x00000000 557068     274404     700        29832      2          dest         
+0x00000000 589837     274404     600        393216     2          dest         
+0x00000000 655374     274404     700        26532      2          dest         
+0x00000000 688143     274404     600        393216     2          dest         
+0x00000000 720912     274404     600        393216     2          dest         
+0x00000000 753681     274404     700        31548      2          dest         
+0x00000000 786450     274404     700        22044      2          dest         
+0x00000000 819219     274404     700        7835520    2          dest         
+0x00000000 851988     274404     600        393216     2          dest         
+0x00000000 884757     274404     600        393216     2          dest         
+
+------ Matrici semafori --------
+chiave     semid      proprietario perms      nsems     
+
+------ Code messaggi  --------
+chiave     msqid      proprietario perms      byte utilizzati messaggi 
+
+Code messagg is mailboxes.
+
+
+
+
+
+SEM
+
+No hold and wait -> no deadlock 
+(atomics operations on list of semaphores)
+
+// more than 1 operation on sem id
+int semop(id, ops[], number_op)
+
+operations:
+ - +1 // up
+ - -1 // down
+ - 0  // sleep if 0
+
+int semctl(id, initial_number, arg)
+
+
+Execise: 5 filosofi
