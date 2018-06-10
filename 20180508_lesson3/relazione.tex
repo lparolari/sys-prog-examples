@@ -1,0 +1,985 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LaTeX book template                           %%
+%% Author:  Amber Jain (http://amberj.devio.us/) %%
+%% License: ISC license                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sample table                                        %
+% Source: www1.maths.leeds.ac.uk/latex/TableHelp1.pdf %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{table}[ht]
+%\caption{Sample table} % title of Table
+%\centering % used for centering table
+%\begin{tabular}{c c c c}
+% centered columns (4 columns)
+%\hline\hline %inserts double horizontal lines
+%S. No. & Column\#1 & Column\#2 & Column\#3 \\ [0.5ex]
+%% inserts table
+%%heading
+%\hline % inserts single horizontal line
+%1 & 50 & 837 & 970 \\
+%2 & 47 & 877 & 230 \\
+%3 & 31 & 25 & 415 \\
+%4 & 35 & 144 & 2356 \\
+%5 & 45 & 300 & 556 \\ [1ex] % [1ex] adds vertical space
+%\hline %inserts single line
+%\end{tabular}
+%\label{table:nonlin} % is used to refer this table in the text
+%\end{table}
+
+\documentclass[a4paper,11pt,oneside]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage{hyperref} % http://en.wikibooks.org/wiki/LaTeX/Hyperlinks
+\usepackage{graphicx}
+\usepackage[english]{babel}
+
+\usepackage{answers}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[useregional]{datetime2}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{fancyref}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% code and colors packages
+%
+% https://stackoverflow.com/questions/3175105/writing-code-in-latex-document?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{listings}	% code
+\usepackage{xcolor}		% color
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+	%frame=tb,
+	language=c++,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	%numberstyle=\tiny\color{gray},
+	%keywordstyle=\color{blue},
+	%commentstyle=\color{dkgreen},
+	%stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
+\def\codeinline{
+	\lstinline[
+		basicstyle=\ttfamily,
+		keywordstyle={}
+	]
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 'dedication' environment: To add a dedication paragraph at the start of book %
+% Source: http://www.tug.org/pipermail/texhax/2010-June/015184.html            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{dedication}
+{
+   \cleardoublepage
+   \thispagestyle{empty}
+   \vspace*{\stretch{1}}
+   \hfill\begin{minipage}[t]{0.66\textwidth}
+   \raggedright
+}
+{
+   \end{minipage}
+   \vspace*{\stretch{3}}
+   \clearpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter quote at the start of chapter        %
+% Source: http://tex.stackexchange.com/a/53380 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First page of book which contains 'stuff' like: %
+%  - Book title, subtitle                         %
+%  - Book author name                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Book's title and subtitle
+\title{\Huge \textbf{Operative Systems}  \footnote{Operative Systems course at UNIPR.} \\ \huge Workbook \footnote{Report and solved exercises from slides seen at lessons.}}
+% Author
+\author{\textsc{Luca Parolari}\thanks{\href{mailto:luca.parolari@studennti.unipr.it}{luca.parolari@studennti.unipr.it}}}
+
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add a dedication paragraph to dedicate your book to someone %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{dedication}
+%Dedicated to Calvin and Hobbes.
+%\end{dedication}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Auto-generated table of contents, list of figures and list of tables %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+\mainmatter
+
+
+
+% ----------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%											   %
+% 				 	Preface					   %
+%											   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Preface}
+First of all, this paper will be a \textbf{workbook} where i do exercises from slides, but the second goal is to write a little "manual" for basic commands and unix details on which i can study.
+
+\section*{Why in english?}
+In a world where english is the first international language it's a good this to do some practise with a king of formal document, so i decided to write this workbook in english.
+I apologize in advance if my english is not correct or if it sounds bad, but it's my first time!
+
+\section*{Exercises}
+Exercises are taken from a slide which can be found on \textit{link}.
+
+\section*{Structure of document}
+Each unit will focus on a particular exercise or group of exercises done at lesson but all section will be integrated with theory hints. \\
+
+\noindent The theory concept are taken from my notes, from the slides provided on \href{http://elly.smfi.unipr.it/2017/pluginfile.php/138/course/section/805/Lezione\%201.pdf}{elly} and, if necessary, from the internet (sources will be listed in sitography).
+
+
+\section*{Useful links}
+\begin{itemize}
+  \item \href{}{This document}.
+  \item \href{}{This document source}.
+  \item \href{http://elly.smfi.unipr.it/2017/course/view.php?id=9}{Operative System course on Elly at UNIPR}.
+  
+  \item Miscellaneous material (e.g. suggested readings etc).
+\end{itemize}
+
+
+
+% ----------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%											   %
+% 				 Introduction				   %
+%											   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction}
+\begin{chapquote}{10/04/2018}
+	Laboratory: Lesson 1
+\end{chapquote}
+
+\noindent This chapter will talk about fundamental pratical concepts of Linux/Unix OS.
+In particular, i will talk about linux shell's types and characteristics. Then i will proceed with popular and useful commands like \codeinline{ls}, \codeinline{cd}, \codeinline{man}, \codeinline{ps}, and many others.
+After that i will show an overview of Unix file structure and organization and little description for file permissions.
+
+
+% *** Shell *** 	
+\section{Shell}
+The shell is a characters interface. 
+The user can interact with it by executing commands and the shell responds to the user with some messages.
+
+There are many types of shell:
+\begin{itemize}
+	\item \textbf{sh}: Bourne shell.
+	\item \textbf{bash}: Bourne again shell.
+	\item \textbf{csh}: C shell.
+	\item \textbf{tcsh}: Teach C shell.
+	\item \textbf{ksh}: Korn shell.
+\end{itemize}
+
+\noindent All the shells provides a programming language, that is very more powerful compared to visual interaction.
+
+
+% *** Commands *** 
+\section{Commands}
+A command is something that the machine must execute.
+Commands has this synopsis: \codeinline{command [options] <arguments>}.
+
+Here there are some commands:
+\begin{itemize}
+\item \codeinline{date}, shows current date.
+\begin{lstlisting}
+foo@vtest:~$ date
+mar 10 apr 2018, 21.12.38, CEST
+\end{lstlisting}
+	
+\item \codeinline{who}, shows users connected to the system.
+\begin{lstlisting}
+foo@vtest:~$ who
+foo  tty2  2018-04-10 16:47 (:1)
+\end{lstlisting}
+	
+\item \codeinline{uname -a}, shows system informations.
+\begin{lstlisting}
+foo@vtest:~$ uname -a
+Linux pc-bcvdev 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+\end{lstlisting}
+	
+\item \codeinline{ps}, shows user's processes
+\begin{lstlisting}
+foo@vtest:~$ ps
+PID TTY          TIME CMD
+5154 pts/0    00:00:00 bash
+12646 pts/0    00:00:00 ps
+
+\end{lstlisting}
+	
+\item \codeinline{ps ef}, shows all processes
+\begin{lstlisting}
+foo@vtest:~$ ps ef
+PID TTY      STAT   TIME COMMAND
+5154 pts/0    Ss     0:00 bash [...]
+12688 pts/0   R+     0:00  \_ ps ef
+1678 tty2     Ssl+   0:00 /usr/lib/gdm3/gdm-x-session
+1772 tty2     Sl+    0:00  \_ /usr/lib/gnome-session/gnome-session-binary
+1907 tty2     Rl+   19:58      \_ /usr/bin/gnome-shell
+1944 tty2     Sl     1:22      |   \_ ibus-daemon
+1950 tty2     Sl     0:00      |   |   \_ /usr/lib/ibus/ibus-dconf
+2221 tty2     Sl     0:25      |   |   \_ /usr/lib/ibus/ibus-.. 
+6524 tty2     Sl+    4:59      |   \_ gummi 
+10948 tty2    Sl+    0:04      |   \_ /usr/bin/emacs25
+
+[MORE]
+\end{lstlisting}
+
+This command shows lots of more informations and lots of more processes but these are omitted for clearity.
+	
+\end{itemize}
+
+
+% *** Files ***
+\section{Files}
+
+% Folder structure
+\subsection{Folder structure}
+
+Unix usually has standard and repetitive files structure which includes:
+
+\begin{table}[ht]
+\caption{Folder structure} % title of Table
+\centering % used for centering table
+\begin{tabular}{c c} % centered columns (2 columns)
+\hline\hline %inserts double horizontal lines
+Name & Description \\ [0.5ex]
+% inserts table
+%heading
+\hline % inserts single horizontal line
+/ & Root directory \\
+bin & User commands \\
+sbin & Admin commands \\
+dev & I/O devices \\
+etc & Configuration files \\
+lib & Software library \\
+var & Variable dimension files (ex. logs, mailbox..) \\
+usr & Programs and apps \\
+home & Personal directories for users \\
+proc & Dynamic system informations \\
+ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+\label{table:folderstructure} % is used to refer this table in the text
+\end{table}
+
+% File permissions
+\subsection{File permissions}
+Linux is a multiuser system.
+There are four user categories: \textbf{root}, which has all permissions on all files and \textbf{owner} (u), \textbf{group} (g), \textbf{world} (o) 
+which are regulated by permission rules.
+
+\noindent Every file has an information made of \emph{10 bits} where: 
+\begin{itemize}
+\item \emph{the first bit} represents the file type (\emph{file} or \emph{directory});
+\item bits \emph{from 2 to 4} represent owner permissions;
+\item bits \emph{from 5 to 7} represent group permissions;
+\item bits \emph{from 8 to 10} represent world permissions;
+\end{itemize}
+
+\noindent where in this group the first bit is for \emph{read}, the second for \emph{write} and the third for \emph{execute} permission.
+
+
+% *** Exerices ***
+\section{Exercises}
+
+1. What is your home directory?
+
+My home directory is located in \codeinline{ /home/foo/ }.
+\\
+
+\noindent 2. Show home directory file ordered by modification date.
+
+\begin{lstlisting}
+foo@vtest:~$ ls --sort=t -a -l
+totale 177564
+drwxr-xr-x  13 foo    foo        4096 apr 10 18:44 Scaricati
+drwxr-xr-x  38 foo    foo        4096 apr 10 18:34 .config
+drwxr-xr-x  52 foo    foo        4096 apr 10 16:47 .
+-rw-------   1 foo    foo       47206 apr 10 16:47 .ICEauthority
+-rw-------   1 foo    foo       43169 apr 10 11:29 .bash_history
+lrwxrwxrwx   1 foo    foo          23 apr 10 10:54 omega -> /media/foo/Omega/
+drwxrwxr-x   5 foo    foo        4096 apr  9 22:14 VirtualBox VMs
+drwx------  38 foo    foo        4096 apr  9 18:34 .cache
+drwx------   2 foo    foo        4096 apr  8 19:02 .gconf
+drwxr-xr-x 985 foo    foo       36864 apr  6 15:30 .npm
+-rw-------   1 foo    foo           0 apr  6 15:26 .node_repl_history
+-rw-------   1 foo    foo         537 apr  4 20:13 .xdvirc
+drwxr-xr-x  24 foo    foo        4096 mar 31 15:29 .gimp-2.8
+drwxr-xr-x   5 foo    foo        4096 mar 30 18:04 .android
+drwxr-xr-x   3 foo    foo        4096 mar 30 10:23 Scrivania
+drwxr-xr-x   4 foo    foo        4096 mar 28 12:50 .wine
+drwxr-xr-x   2 foo    foo        4096 mar 28 12:50 .swipl-dir-history
+drwxr-xr-x   2 foo    foo        4096 mar 28 08:37 Video
+-rw-r--r--   1 foo    foo         502 mar 27 16:16 .emacs
+drwx------   5 foo    foo        4096 mar 26 22:26 .emacs.d
+-rw-------   1 foo    foo          34 mar 26 21:18 .lesshst
+-rw-------   1 foo    foo          71 mar 24 14:23 .sqlite_history
+drwxr-xr-x   3 foo    foo        4096 mar 22 16:42 .texlive2017
+-rw-r--r--   1 foo    foo         664 mar 22 16:32 texput.log
+drwxr-xr-x  10 foo    foo        4096 mar 20 21:36 Documenti
+drwxr-xr-x   2 foo    foo        4096 mar  8 15:35 Immagini
+drwx------   2 foo    foo        4096 mar  8 15:05 .ssh
+-rw-rw-r--   1 foo    foo          85 mar  5 12:04 .gitconfig
+-rw-r--r--   1 foo    foo           0 mar  1 17:38 .odbc.ini
+-rw-r-----   1 foo    foo           0 feb 28 17:42 .gksu.lock
+drwxrwxr-x   3 foo    foo        4096 feb 27 18:55 .m2
+drwxrwxr-x   3 foo    foo        4096 feb 27 17:39 shared
+-rw-------   1 foo    foo        1024 feb 22 17:22 .rnd
+-rw-rw-r--   1 foo    foo        3360 feb 14 10:37 .pgadmin3
+-rw-rw-r--   1 foo    foo         204 feb 14 09:12 .pgadmin...
+-rw-rw-r--   1 foo    foo         834 feb 14 09:12 pgadmin.log
+-rw-------   1 foo    foo           0 feb 14 09:02 .pgpass
+-rw-r--r--   1 foo    foo          73 feb 14 08:52 .selected_editor
+-rw-------   1 foo    foo           0 feb 13 22:40 .psql_history
+drwx------   2 foo    foo        4096 feb  8 14:39 .remmina
+drwxr-xr-x   2 foo    foo        4096 feb  8 14:38 .vnc
+drwx------   3 foo    foo        4096 feb  7 21:37 .gnupg
+-rw-r--r--   1 root   root    2238078 feb  7 21:08 .-02.cap
+-rw-r--r--   1 root   root   10908742 feb  7 21:08 .-01.cap
+-rw-r--r--   1 root   root        597 feb  7 21:08 .-01.kismet.csv
+-rw-r--r--   1 root   root       3792 feb  7 21:08 .-01.kismet.netxml
+-rw-r--r--   1 root   root       4870 feb  7 21:08 .-02.kismet.netxml
+-rw-r--r--   1 root   root        585 feb  7 21:08 .-01.csv
+-rw-r--r--   1 root   root        686 feb  7 21:08 .-02.csv
+-rw-r--r--   1 root   root        604 feb  7 21:08 .-02.kismet.csv
+-rw-rw-r--   1 foo    foo        2423 feb  2 14:55 .overgrive.log
+-rw-rw-r--   1 foo    foo           5 feb  2 14:54 .overgrive.lock
+-rw-------   1 foo    foo          13 gen 30 16:12 .mysql_history
+-rw-------   1 foo    foo        8192 gen 26 19:01 lp2s0
+-rw-------   1 foo    foo        8192 gen 26 19:01 ls20
+drwx------   3 foo    foo        4096 gen 26 08:12 .putty
+drwx------   3 foo    foo        4096 gen 25 16:34 .gnome
+-rw-rw-r--   1 foo    foo      155054 gen 25 13:31 java...
+drwxrwxr-x   3 foo    foo        4096 gen 22 23:06 .tixati
+drwxr-xr-x   2 foo    foo        4096 gen 22 22:23 Desktop
+drwxr-xr-x   3 foo    foo        4096 gen 22 22:23 snap
+drwxrwxr-x   2 foo    foo        4096 gen 22 21:41 MEGAsync
+drwx------   3 foo    foo        4096 gen 22 13:58 .thumbnails
+drwx------   4 foo    foo        4096 gen 22 13:57 .nv
+drwx------   2 root   root       4096 gen 22 13:27 .gvfs
+drwxrwxr-x   3 foo    foo        4096 gen 21 12:19 Sviluppo
+-rw-r--r--   1 foo    foo         401 gen 21 12:13 id_rsa_20170121.pub
+-rw-------   1 foo    foo        1766 gen 21 12:13 id_rsa_20170121
+drwxr-xr-x   2 foo    foo        4096 gen 20 20:23 .swt
+drwxr-xr-x   4 foo    foo        4096 gen 20 19:51 .smartgit
+drwx------   4 foo    foo        4096 gen 20 18:18 .thunderbird
+drwx------   3 foo    foo        4096 gen 20 18:14 .mysql
+drwx------   3 root   root       4096 gen 20 18:04 .dbus
+drwxr-xr-x   4 foo    foo        4096 gen 20 18:02 .IntelliJIdea2017.2
+drwxr-xr-x   4 foo    foo        4096 gen 20 17:53 .PhpStorm2017.2
+drwxr-xr-x   7 foo    foo        4096 gen 20 17:48 .gradle
+-rw-------   1 foo    foo   168026112 gen 20 17:20 core
+drwxrwxr-x   3 foo    foo        4096 gen 20 17:20 .vscode
+drwx------   3 foo    foo        4096 gen 20 17:20 .pki
+drwxr-xr-x   3 foo    foo        4096 gen 20 17:19 Android
+drwxr-xr-x   4 foo    foo        4096 gen 20 17:18 .java
+drwxr-xr-x   4 foo    foo        4096 gen 20 17:18 .AndroidStudio3.0
+drwx------   5 foo    foo        4096 gen 20 15:30 .mozilla
+-rw-r--r--   1 foo    foo           0 gen 20 15:28 .s ...
+drwxr-xr-x   2 foo    foo        4096 gen 20 14:28 Modelli
+drwxr-xr-x   2 foo    foo        4096 gen 20 14:28 Musica
+drwxr-xr-x   2 foo    foo        4096 gen 20 14:28 Pubblici
+drwxr-xr-x   3 foo    foo        4096 gen 20 14:28 .local
+-rw-r--r--   1 foo    foo         220 gen 20 13:21 .bash_logout
+-rw-r--r--   1 foo    foo        3771 gen 20 13:21 .bashrc
+-rw-r--r--   1 foo    foo        8980 gen 20 13:21 examples.desktop
+-rw-r--r--   1 foo    foo         675 gen 20 13:21 .profile
+drwxr-xr-x   3 root   root       4096 gen 20 13:21 ..
+
+\end{lstlisting}
+
+
+\noindent 3. What is the difference between \codeinline{cat}, \codeinline{more} and \codeinline{tail}?
+
+\codeinline{Cat} is a program used to concatenate files and print them on standard output. 
+
+\codeinline{Tail} instead print  the  last  10  lines of each file to standard output.
+
+And \codeinline{more} is a filter for paging through text one screenful at a time. \\
+
+\noindent 4. Find a way to show home subdirectories recursively.
+
+There are more than one way.
+
+\begin{itemize}
+\item \codeinline{ls -R} shows directories recursively;
+\item \codeinline{ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'} found on google, manipulates the output of command described before and output something like this:
+\begin{lstlisting}
+   |-Android
+   |---Sdk
+   |-----build-tools
+   |-------21.1.2
+   |---------lib
+   |---------renderscript
+   |-----------clang-include
+   |-----------include
+   |-----------lib
+   |-------------bc
+   |---------------armeabi-v7a
+   |---------------mips
+   |---------------x86
+   |-------------intermediates
+   |---------------armeabi-v7a
+   |---------------mips
+   |---------------x86
+   |-------------packaged
+   |---------------armeabi-v7a
+   |---------------mips
+   |---------------x86
+   |-------26.0.2
+   |---------lib
+   |---------lib64
+   |---------renderscript
+   |-----------clang-include
+   |-----------include
+   |-----------lib
+
+[MORE]
+
+\end{lstlisting}
+
+\item \codeinline{tree} (installed with \codeinline {sudo apt-get install tree}) shows something like this:
+\begin{lstlisting}
++-- Android
+|   +-- Sdk
+|       +-- build-tools
+|       |   +-- 21.1.2
+|       |   |   +-- aapt
+|       |   |   +-- aidl
+|       |   |   +-- arm-linux-androideabi-ld
+|       |   |   +-- bcc_compat
+|       |   |   +-- dexdump
+|       |   |   +-- dx
+|       |   |   +-- i686-linux-android-ld
+|       |   |   +-- jack.jar
+|       |   |   +-- jill.jar
+|       |   |   +-- lib
+|       |   |   |   +-- dx.jar
+|       |   |   |   +-- shrinkedAndroid.jar
+|       |   |   +-- libbcc.so
+|       |   |   +-- libbcinfo.so
+|       |   |   +-- libclang.so
+|       |   |   +-- libc++.so
+|       |   |   +-- libLLVM.so
+|       |   |   +-- llvm-rs-cc
+|       |   |   +-- mainDexClasses
+|       |   |   +-- mainDexClasses.rules
+|       |   |   +-- mipsel-linux-android-ld
+|       |   |   +-- NOTICE.txt
+|       |   |   +-- package.xml
+|       |   |   +-- renderscript
+
+[MORE]
+\end{lstlisting}
+
+\end{itemize}
+
+\noindent 5. What following commands do?
+\begin{lstlisting}
+1: > cd
+2: > mkdir d1
+3: > chmod 444 d1
+4: > cd d1
+\end{lstlisting}
+
+At \emph{line 1} the current dir is setted to home (tilde); at \emph{line 2} a new directory called \codeinline{d1} is created and then, at \emph{line 3} it's permissions are setted. The permissions say that all can read but nobody can write or execute the directory.
+At \emph{line 4} is returned an error which says that we don't have permission to "run" (i.e. access) the directory.
+
+
+
+% ----------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%											   %
+% 				    Bash	 				   %
+%											   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Bash}
+
+\begin{chapquote}{17/04/2018}
+	Laboratory: Lesson 2
+\end{chapquote}
+
+\section{Exercises}
+
+\begin{enumerate}[label=\arabic*)]
+
+%% Es 1
+\item Write an unique command (pipeline) for:
+\begin{enumerate}[label=\alph*)]
+\item copying the content in dir1 to dir2;
+\item showing number of files contained in directories recursively (use \codeinline{ls -R} and \codeinline{find});
+\item showing home's directory files which star with 3 chars and a number.
+\end{enumerate}
+
+\textbf{Solution.}
+\begin{enumerate}[label=\alph*)]
+\item {\ttfamily cp -r dir1/* dir2}, copies recursively the content of \codeinline{dir1} to \codeinline{dir2}
+\item {\ttfamily ls -R | find | wc -l}, shows the number of lines produced by find command.
+
+The first command executed is \codeinline{ls -R} which outputs 
+	\begin{lstlisting}
+	foo@vtest:~/Documents/es/studenti$ ls -R
+	.:
+	dir1  dir2  f1.txt  f2.txt
+
+	./dir1:
+	f1.txt  f2.txt
+
+	./dir2:
+	f1.txt  f2.txt
+	\end{lstlisting}
+then \codeinline{find} that outputs
+	\begin{lstlisting}
+	foo@vtest:~/Documents/es/studenti$ ls -R | find
+	.
+	./f2.txt
+	./f1.txt
+	./dir1
+	./dir1/f2.txt
+	./dir1/f1.txt
+	./dir2
+	./dir2/f2.txt
+	./dir2/f1.txt
+	\end{lstlisting}
+and finally \codeinline {wc -l} which counts number of lines (i.e. numer of files and directory)
+	\begin{lstlisting}
+	foo@vtest:~/Documents/es/studenti$ ls -R | find | wc -l
+	9
+	\end{lstlisting}
+\item {\ttfamily echo ~/[a-z][a-z][a-z][0-9]*} 
+\end{enumerate}  
+
+%% Es 2
+\item What are the difference between:
+\begin{enumerate}[label=\alph*)]
+\item \codeinline{ls};
+\item \codeinline{ls | cat};
+\item \codeinline{ls | more}.
+\end{enumerate}
+\textbf{Solution.}
+\begin{enumerate}[label=\alph*)]
+\item \codeinline{ls} list information about files in a directory;
+\item \codeinline{ls | cat} takes the output of \codeinline{ls} and prints it on stdout;
+\item \codeinline{ls | more} takes the output of \codeinline{ls} and prints with \codeinline{more} format, providing filters and interactivity.
+\end{enumerate}
+
+%% Es 3
+\item What are the effects of following commands?
+\begin{enumerate}[label=\alph*)]
+\item \codeinline{uniq < file};
+\item \codeinline{who | wc -l};
+\item \codeinline{ps -e | wc -l}.
+\end{enumerate}
+\textbf{Solution.}
+\begin{enumerate}[label=\alph*)]
+\item \codeinline{uniq < file}, compares adjacent lines and merge to the first occurrence matching lines in $file$q;
+\item \codeinline{who | wc -l}, prints the number of lines from $input$. In this case input is \codeinline{who} which show logged in users, so \codeinline{who | wc -l} shows number of logged users;
+\item \codeinline{ps -e | wc -l}, like the previos but here \codeinline{ps -e | wc -l} shows number of processes running in the system.
+\end{enumerate}
+
+%% Es 4
+\item Override \codeinline{rm} command so that no delete confirmation is asked.
+
+\textbf{Solution.} 
+\begin{lstlisting}
+foo@vtest:~$ alias rm="rm --interactive=never"
+foo@vtest:~$ alias rmi="rm -i"
+\end{lstlisting}
+
+
+%% Es 5
+\item Write a pipeline which outputs number of executing process.
+
+\textbf{Solution.} 
+\begin{lstlisting}
+foo@vtest:~/Documents$ ps -e | wc -l
+\end{lstlisting}
+
+
+%% Es 6
+\item Save to a file last command with \codeinline{ls}.
+
+\textbf{Solution.} 
+\begin{lstlisting}
+foo@vtest:~/Documents$ !ls > t.txt
+\end{lstlisting}
+
+
+%% Es 7
+\item Write a command which shows number of commands saved in history.
+
+\textbf{Solution.} 
+\begin{lstlisting}
+foo@vtest:~/Documents$ history | wc -l
+\end{lstlisting}
+
+
+%% Es 8
+\item Write a command which shows top 15 commands saved in history.
+
+\textbf{Solution.} 
+\begin{lstlisting}
+foo@vtest:~/Documents$ history | tail -n 15
+\end{lstlisting}
+
+
+%% Es 9
+\item What are unix commands which start with $lo$?.
+
+\textbf{Solution.} 
+\begin{lstlisting}
+foo@vtest:~$ lo[TAB]
+loadkeys        locate          logout          lorder
+loadunimap      lodraw          logresolve      losetup
+local           loffice         logrotate       loweb
+localc          lofromtemplate  logsave         lowntfs-3g
+locale          logger          loimpress       lowriter
+localectl       login           lollipop        
+localedef       loginctl        lomath          
+locale-gen      logname         look        
+\end{lstlisting}
+
+
+%% Es 10
+\item Create at least 2 ways to display home dir files starting with $al$?.
+
+\textbf{Solution.} 
+\begin{lstlisting}
+foo@vtest:~$ ?????
+\end{lstlisting}
+
+
+%% Es 11
+\item What is the result of following commands?.
+\begin{enumerate}[label=\alph*)]
+\item \codeinline{ls -R || (echo file non accessibili > tmp)}
+\item \codeinline{(who | grep rossi) && cd ~rossi}
+\item \codeinline{(cd / ; pwd ; ls | wc -l )}
+\end{enumerate}
+
+\textbf{Solution.} 
+\begin{enumerate}[label=\alph*)]
+\item \codeinline{(echo file non accessibili > tmp)} will be executed only if \codeinline{ls -R} fails, if everything it's fine \codeinline{ls -R} will outputted on screen;
+\item if \codeinline{(who | grep rossi)} is successful (rossi is logged in), change directory to \codeinline{~rossi}
+\item \codeinline{(cd / ; pwd ; ls | wc -l )} moves to root directoy, show on screen \textit{present working directory} then shows number of files and directories in /.
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+% ----------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%											   %
+% 			More on Bash, Filters   		   %
+%											   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{More on Bash, Filters}
+
+\begin{chapquote}{08/05/2018}
+	Laboratory: Lesson 3
+\end{chapquote}
+
+\section{Exercises}
+
+\begin{enumerate}[label=\arabic*)]
+
+%% Es 1
+\item Execute \codeinline{(xterm&) ; (nice xterm&) ; (nice -n 19 xterm&); ps -el}
+
+\textbf{Solution.} 
+\begin{lstlisting}
+foo@vtest:~$ (xterm&) ; (nice xterm&) ; (nice -n 19 xterm&); ps -el
+0 R  1000 13190  1852  0  80   0 - 20376 -      pts/1    00:00:00 xterm
+0 S  1000 13192  1852  0  90  10 - 20376 poll_s pts/1    00:00:00 xterm
+0 R  1000 13194  1852  0  99  19 - 16758 -      pts/1    00:00:00 xterm
+\end{lstlisting}
+
+%% Es 2
+\item What is the effect of \codeinline{sort file > file}?
+
+\textbf{Solution.} The output of sort command is redirected and writed on file.
+
+%% Es 3
+\item What is the effect of \codeinline{tr str1 str2} if $|str1| \neq |str2|$ ?
+
+\textbf{Solution.} $tr$ translates a text by $str1[i]$ occurence with $str2[i]$. If $str2<str1$ the the last charater of $str2$ is repeated as necessary. If $str2\geq str1$ normal transaltion of $str1$ happens.
+
+%% Es 4
+\item Replace alphanumerics characters with a <tab>.
+
+\textbf{Solution.} \codeinline{cat b.txt | tr -s A-Za-z0-9 \\t}
+
+%% Es 5
+\item Write a pipeline that discover repeated lines in a file.
+
+\textbf{Solution.} \codeinline{cat b.txt | sort | uniq --count}
+
+% Es 6 
+\item Write a command to discover users that has at least a process running on the system and output them once.
+
+\textbf{Solution.}
+\begin{lstlisting}
+foo@vtest:~/temp/t$ ps -fe | awk ' { if ($1!="UID") { print $1 } } ' | sort | uniq
+avahi
+colord
+foo
+gdm
+kernoops
+message+
+mysql
+nvidia-+
+postgres
+root
+rtkit
+syslog
+systemd+
+whoopsie
+www-data
+\end{lstlisting}
+
+\begin{lstlisting}
+foo@vtest:~/temp/t$ ps -f | awk ' { if ($1!="UID") { print $1 } } ' | sort | uniq
+foo
+\end{lstlisting}
+
+\end{enumerate}
+
+
+
+% ----------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%											   %
+% 				    Scripts         		   %
+%											   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Scripts}
+
+\begin{chapquote}{22/05/2018}
+	Laboratory: Lesson 4
+\end{chapquote}
+
+\section{Bash' scripts}
+Shell' scripts are intepreted by shell and they are writed with atomics commands.
+
+A script can be executed if it has $x$ permission, and the firt line must be \codeinline{#!/bin/bash}. Scripts can be executed by calling \codeinline{./script_name}.
+
+\section{Arrays}
+Assignment: \codeinline{a=(0 1 2 3 4)}, read: 
+
+
+\section{Exercises}
+
+\subsection{Draw Triangle}
+Create a command named $drawtriangle$ which prints a triangle with give height.
+
+\noindent\textbf{Solution.}
+\begin{lstlisting}
+#!/bin/bash
+
+# display the usage of drawitriangle and exit with code 1
+usage() {
+    echo "usage: drawtriangle <height>"
+    echo ""
+    echo " <height>: the height of the triangle."
+    echo "   must be a number"
+    echo "   must be between 3 and 15"
+	exit 1
+}
+
+
+
+height=$1
+
+
+# test if height is given
+if [ $# -ne 1 ]
+then usage; fi;
+
+# test if height is a number
+re='^[0-9]+$'
+if ! [[ $height =~ $re ]] ; then
+   usage
+fi
+
+# test if 3 < height < 15
+if test $height -lt 3 -o $height -gt 15
+then usage; fi;
+
+
+# drawing triangle
+for i in `seq 1 $[$height-1]` # iterate on height
+do
+    echo -n "|"
+    for j in `seq 1 $[$i-1]` # iterate on spaces between left and right
+    do
+	 echo -n " "
+    done
+    echo "\\" # draw right side
+done
+for i in `seq 1 $[$height+1]` # draw the base
+do
+    echo -n "-"
+done
+echo ""
+\end{lstlisting}
+
+The output:
+
+\begin{lstlisting}
+foo@vtest:~$ ./drawtriagnle.sh 100
+usage: drawtriangle <height>
+
+ <height>: the height of the triangle.
+   must be a number
+   must be between 3 and 15
+\end{lstlisting}
+
+\begin{lstlisting}
+foo@vtest:~$ ./drawtriagnle.sh 5
+|\
+| \
+|  \
+|   \
+------
+\end{lstlisting}
+
+\subsection{Clear Core}
+Create a command that delete recursively all files named $core$ starting from $dir$.
+
+\noindent\textbf{Solution.}
+\begin{lstlisting}
+#!/bin/bash
+
+# display the usage of clearcore and exit with code 1
+usage() {
+    echo "usage: clearcore <dirpath>"
+    echo ""
+    echo "Deletes all file named 'core' recursively from dirpath"
+    echo ""
+    echo "ARGS:"
+    echo " <dirpath>: directory from which deleting core files."
+    exit 1
+}
+
+
+dirpath=$1
+
+
+# test if dirpath is given
+if [ $# -ne 1 ]
+then usage; fi;
+
+# test if dirpath exist and if dirpath is a directory
+if test ! -e $dirpath -o ! -d $dirpath
+then usage; fi;
+
+
+echo "Following file will be deleted:"
+echo ""
+for i in `find $dirpath -name core -type f`
+do
+    echo $i
+done
+echo ""
+echo "are you sure?"
+select continue in "yes" "no"
+do
+    for i in `find $dirpath -name core -type f`
+    do
+		rm $i
+    done
+    echo ""
+    echo "Deleted"
+    break
+done
+\end{lstlisting}
+
+The output if non valid input
+
+\begin{lstlisting}
+foo@vtest:~$ ./clearcore.sh
+usage: clearcore <dirpath>
+
+Deletes all file named 'core' recursively from dirpath
+
+ARGS:
+ <dirpath>: directory from which deleting core files.
+\end{lstlisting}
+
+and if valid
+
+\begin{lstlisting}
+foo@vtest:~$ ./clearcore.sh dir
+Following file will be deleted:
+
+dir/core
+dir/d1/core
+
+are you sure?
+1) yes
+2) no
+#? yes
+
+Deleted
+\end{lstlisting}
+
+\subsection{Process Utility}
+Create a user-friendly handle of process which allow to show pid and command line that has created process, giving a user, show all system processes orderer by pid, provide $kill -9$ on a pid.
+
+\end{document}

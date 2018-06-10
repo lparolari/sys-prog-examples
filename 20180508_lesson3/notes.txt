@@ -1,0 +1,176 @@
+08/05/2018 - Lezione 3
+
+
+compare files: cmp, diff
+
+
+ps - minimal informations
+pstree - process tree structure
+
+
+renice delta_priority pid - increment or decrement priority of a process
+
+
+kill -9 : killer instantly
+kill -s pid : soft kill
+
+
+background process:
+ no input or output process (services, deamon..)
+ by default processes are launched in interactivity mode
+ with "&" we are telling to the os that we want to lauch process in background
+ or we can put it in backgroud and resume with \codeinline{bg}, \codeinline{fg} commands 
+
+jobs: shows suspended jobs
+fg: put process foreground
+bg: put process background
+
+\begin{lstlisting}
+top: shows some system informations, memory, users, times...
+
+lparolari@pc-bcvdev:/media/lparolari/Omega/google_drive/Scuola/UNIPR/2017-2018/Corsi/Sistemi operativi/Laboratorio/20180508 - Lezione 3$ diff relazione.tex relazione2.tex 
+lparolari@pc-bcvdev:/media/lparolari/Omega/google_drive/Scuola/UNIPR/2017-2018/Corsi/Sistemi operativi/Laboratorio/20180508 - Lezione 3$ diff relazione.tex relazione2.tex 
+20c20,29
+< %\hline % inserts single horizontal line
+---
+> %\hline % inserts single horizontal linesad
+> dsadas
+> da
+> d
+> s
+> a
+> dsd
+> a
+> s
+> a
+lparolari@pc-bcvdev:/media/lparolari/Omega/google_drive/Scuola/UNIPR/2017-2018/Corsi/Sistemi operativi/Laboratorio/20180508 - Lezione 3$ top
+
+top - 10:01:10 up 46 min,  1 user,  load average: 0,30, 0,63, 0,77
+Tasks: 281 total,   2 running, 227 sleeping,   1 stopped,   0 zombie
+%Cpu(s):  6,8 us,  3,5 sy,  0,1 ni, 89,4 id,  0,0 wa,  0,0 hi,  0,2 si,  0,0 st
+KiB Mem : 12195032 total,   143772 free,  6902764 used,  5148496 buff/cache
+KiB Swap:  2097148 total,  2097148 free,        0 used.  5260740 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND     
+ 1845 lparola+  20   0 3897608 318684  97380 R  15,0  2,6   5:32.64 gnome-shell 
+ 1658 root      20   0  497408 109732  72468 S   7,6  0,9   2:20.87 Xorg        
+ 5003 lparola+  20   0 7268052 2,815g 2,729g S   6,0 24,2   9:19.75 VirtualBox  
+ 4277 lparola+  20   0  733316  40412  30176 S   4,7  0,3   0:02.32 gnome-term+ 
+ 2741 lparola+  20   0 97,681g 119508  73368 S   3,7  1,0   1:21.85 gnome-cont+ 
+ 4971 lparola+  20   0 1741864 195336 105924 S   3,0  1,6   0:46.38 Web Content 
+ 4388 lparola+  20   0 9176100 426552 139224 S   2,0  3,5   1:53.32 firefox     
+ 1261 root      20   0  322760   9224   7880 S   1,3  0,1   0:00.68 upowerd     
+ 1331 root     -51   0       0      0      0 S   1,3  0,0   0:19.56 irq/130-nv+ 
+ 1427 gdm       20   0 3426764 191520  92120 S   1,3  1,6   0:21.61 gnome-shell 
+    8 root      20   0       0      0      0 I   0,3  0,0   0:02.21 rcu_sched   
+ 1006 root      20   0  583400  19780  15776 S   0,3  0,2   0:08.23 NetworkMan+ 
+ 3864 lparola+  20   0  913580  23200  19056 S   0,3  0,2   0:18.98 VBoxSVC     
+ 4444 lparola+  20   0 2250340 364364 103708 S   0,3  3,0   1:51.48 Web Content 
+ 5849 lparola+  20   0   51324   4052   3380 R   0,3  0,0   0:00.08 top         
+    1 root      20   0  225740   9484   6696 S   0,0  0,1   0:03.61 systemd     
+    2 root      20   0       0      0      0 S   0,0  0,0   0:00.00 kthreadd    
+\end{lstlisting}
+
+
+Time stats:
+ top - 10:03:57 up 49 min,  1 user,  load average: 0,69, 0,62, 0,74
+
+NB: sleeping = ready queue
+
+Process and cpu stats:
+ Tasks: 280 total,   2 running, 229 sleeping,   0 stopped,   0 zombie
+ %Cpu(s):  6,0 us,  2,7 sy,  0,0 ni, 91,2 id,  0,0 wa,  0,0 hi,  0,2 si,  0,0 st
+
+Memory stats:
+ KiB Mem : 12195032 total,   190764 free,  6869608 used,  5134660 buff/cache
+ KiB Swap:  2097148 total,  2097148 free,        0 used.  5286556 avail Mem 
+
+
+iotop is like top but with io usages.
+
+
+
+FILTER COMMANDS
+
+input/output are always text within the shell.
+
+uniq: report or omit repeated lines
+
+grep: general regular expression parser
+ checks line by line and if match line is selected
+
+grep options:
+ -i: ignora la distinzione fra lettere maiuscole e minuscole,
+ -l: fornisce la lista dei file che contengono il pattern/string,
+ -n: le linee in output sono precedute dal numero di linea,
+ -v: vengono restituite solo le linee che non contengono il pattern/string,
+ -w: vengono restituite solo le linee che contengono il pattern/string come parola completa,
+ -x: vengono restituite solo le linee che coincidono esattamen
+ te con pat tern/string.
+
+
+syntax:
+ . : a single char in this position
+ [str] : a char in str
+ * : repeat 0 or more str
+ + : repeat 1 or more str
+ ? : 0 or 1 str
+ {j,k} : range of repeat
+ s|t : s or t
+ (exp) : grouping
+
+
+sort: sort and send to output
+
+
+tr: replace some characters matching a pattern
+ ex: \codeinline{tr a-z A-Z} replace lowecase to uppercase letters
+
+
+EXECISE:
+1) what is the effect of \codeinline{sort file >file}, where $file$ is a filename?
+
+\codeinline{sort file >file} write on file the sorted content by lexical order.
+
+
+
+2) What is the effect of \codeinline{tr str1 str2} is str1 and str2 has different lenghts?
+
+Replace char by char the occurrent chaar with its position in replace string.
+
+foo@vtest:~/Documents$ cat divina2.txt | tr 'nel' 'mezzo' > divina3.txt
+
+3) Write a command to replace alphanumerics chars with a single <Tab>.
+Scrivere un comando per sostituire tutti i caratteri alfanumerici nell’in-
+put con un carattere <Tab>, in modo che non compaiano più <Tab> consecutivi
+
+cat divina2.txt | tr 'a-zA-Z0-9' '\t'| tr -s '\t' 'a'  > divina4.txt
+
+
+4) Write a pipeline which permits to discover if there are repeated lines in a file.
+
+5)
+• Visualizzare su standard output, senza ripetizioni, lo user ID di tutti gli
+utenti che hanno almeno un processo attivo nel sistema.
+
+
+
+SED
+
+cat test.txt | sed 's/ca/bo/g' // g flag change all occurences in the line
+
+s: search ca, sostituisce "bo" a "ca"
+
+
+
+
+AWK: make a program working on text files like a script
+
+
+index.html
+
+cat index.html
+ | tr '\t' ' '
+ | tr -s ' '
+ | sed 's/</\n</g'
+ | awk '/<div>/,/<\/div>/' { print $0 } // { actions }
