@@ -1,0 +1,146 @@
+\hypertarget{rws_8c}{}\section{rws.\+c File Reference}
+\label{rws_8c}\index{rws.\+c@{rws.\+c}}
+
+
+Main file.  
+
+
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for rws.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rws_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{rws_8c_a9901212efa6943de07eee8a84bb97a61}{reader} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Simulates a read procedure. \end{DoxyCompactList}\item 
+void \hyperlink{rws_8c_ae4c2d4b7fa17edbf003c6eb85cc9ffe9}{reader\+\_\+internal} (int r)
+\begin{DoxyCompactList}\small\item\em Executes a read. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{rws_8c_a35c056ce555ff51abe0ca3d8fb7e4bab}{writer} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Simulates a write procedure. \end{DoxyCompactList}\item 
+void \hyperlink{rws_8c_a3de5c2d4bf715ca8503057f577962db1}{writer\+\_\+internal} (char $\ast$w)
+\begin{DoxyCompactList}\small\item\em Executes a write. \end{DoxyCompactList}\item 
+int \hyperlink{rws_8c_abf9e6b7e6f15df4b525a2e7705ba3089}{main} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Entry point function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{rws_8c_a393cb10f43d2ba1db7894dc2d98e46b6}\label{rws_8c_a393cb10f43d2ba1db7894dc2d98e46b6}} 
+int \hyperlink{rws_8c_a393cb10f43d2ba1db7894dc2d98e46b6}{readers\+\_\+no} = 0
+\begin{DoxyCompactList}\small\item\em Counts the readers number, in order to lock or unlock the writer mutex. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{rws_8c_af31293dcb46deffd571b59873c57e2f2}\label{rws_8c_af31293dcb46deffd571b59873c57e2f2}} 
+int \hyperlink{rws_8c_af31293dcb46deffd571b59873c57e2f2}{shared} \mbox{[}100\mbox{]}
+\begin{DoxyCompactList}\small\item\em Shared array on which readers read and writer write. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{rws_8c_a95e21ad495c439bef58578f61faece5d}\label{rws_8c_a95e21ad495c439bef58578f61faece5d}} 
+int \hyperlink{rws_8c_a95e21ad495c439bef58578f61faece5d}{writed\+\_\+no} = 0
+\begin{DoxyCompactList}\small\item\em Counts writed cells number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main file. 
+
+\begin{DoxyAuthor}{Author}
+L. Parolari 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+06/05/2018 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{rws_8c_abf9e6b7e6f15df4b525a2e7705ba3089}\label{rws_8c_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{rws.\+c@{rws.\+c}!main@{main}}
+\index{main@{main}!rws.\+c@{rws.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Entry point function. 
+
+Initializes semaphores and creates thread, making them starting writing or reading.
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & arguments number \\
+\hline
+{\em The} & arguments data \hyperlink{rws_8c_abf9e6b7e6f15df4b525a2e7705ba3089}{main} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{rws_8c_a9901212efa6943de07eee8a84bb97a61}\label{rws_8c_a9901212efa6943de07eee8a84bb97a61}} 
+\index{rws.\+c@{rws.\+c}!reader@{reader}}
+\index{reader@{reader}!rws.\+c@{rws.\+c}}
+\subsubsection{\texorpdfstring{reader()}{reader()}}
+{\footnotesize\ttfamily void$\ast$ reader (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg }\end{DoxyParamCaption})}
+
+
+
+Simulates a read procedure. 
+
+Simulates a read procedure reading things from the shared data, and waits for some seconds simulating reader pause.
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & reader number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{rws_8c_ae4c2d4b7fa17edbf003c6eb85cc9ffe9}\label{rws_8c_ae4c2d4b7fa17edbf003c6eb85cc9ffe9}} 
+\index{rws.\+c@{rws.\+c}!reader\+\_\+internal@{reader\+\_\+internal}}
+\index{reader\+\_\+internal@{reader\+\_\+internal}!rws.\+c@{rws.\+c}}
+\subsubsection{\texorpdfstring{reader\+\_\+internal()}{reader\_internal()}}
+{\footnotesize\ttfamily void reader\+\_\+internal (\begin{DoxyParamCaption}\item[{int}]{r }\end{DoxyParamCaption})}
+
+
+
+Executes a read. 
+
+Execute a read following reader-\/writers protocol.
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & reader thread number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{rws_8c_a35c056ce555ff51abe0ca3d8fb7e4bab}\label{rws_8c_a35c056ce555ff51abe0ca3d8fb7e4bab}} 
+\index{rws.\+c@{rws.\+c}!writer@{writer}}
+\index{writer@{writer}!rws.\+c@{rws.\+c}}
+\subsubsection{\texorpdfstring{writer()}{writer()}}
+{\footnotesize\ttfamily void$\ast$ writer (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg }\end{DoxyParamCaption})}
+
+
+
+Simulates a write procedure. 
+
+Simulates a write procedure writing a shared data cell per time, and waits for some seconds simulating writer pause.
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & writer name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{rws_8c_a3de5c2d4bf715ca8503057f577962db1}\label{rws_8c_a3de5c2d4bf715ca8503057f577962db1}} 
+\index{rws.\+c@{rws.\+c}!writer\+\_\+internal@{writer\+\_\+internal}}
+\index{writer\+\_\+internal@{writer\+\_\+internal}!rws.\+c@{rws.\+c}}
+\subsubsection{\texorpdfstring{writer\+\_\+internal()}{writer\_internal()}}
+{\footnotesize\ttfamily void writer\+\_\+internal (\begin{DoxyParamCaption}\item[{char $\ast$}]{w }\end{DoxyParamCaption})}
+
+
+
+Executes a write. 
+
+Execute a write following reader-\/writers protocol.
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & writer thread name \\
+\hline
+\end{DoxyParams}
