@@ -18,6 +18,7 @@ esempio di creazione processi\n
 
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/wait.h>
 
 #define PROVA 5 //!< Questa e' una macro globale

@@ -124,6 +124,8 @@ void philo(int i) {
 */
 int main() {
 
+  printf("Disclaimer: the \"hungry\" word is only for debuggin purposes, the implemented protocol is not the \"internal state philosophers\".\nImplemented protocol is left-handled philosopher (see docs).\n\n");
+  
   key_t key;
   int sid, val, pid;
 

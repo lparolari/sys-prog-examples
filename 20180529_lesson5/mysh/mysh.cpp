@@ -195,14 +195,27 @@ int which(char* cmd, char* cmdfq) {
     return 1;
 }
 
-/* ******************** command() ******************* */
+/* ******************** exec_command() ******************* */
 /*!
-    \brief  Execute a command using down machine.
+    \brief  Fork the process to execute the requested command
     \param  cmd The command to execute
     \return 0 = Command executed
     \return 1 = Something went wrong
+
+    Execute the reqeusted command forking the process. 
+    When forked the son execute the command, while the father
+     wait his termination. This execution is blocking: shell
+     shoudn't respond until the execution down is terminated.
+    
+    When finish, is something when wrong an error code is returned,
+     otherwise a success code is returned.
+    
+    Errors: 
+     - Forking error is handle returning an error code.
+     - Command not found is handled checking with which if 
+        cmd is a valid command.
 */
-int command(char* cmd, char* argv[]) {
+int exec_command(char* cmd, char* argv[]) {
     char cmdfq[128];
 
     // checking cmd is a valid command.
@@ -237,10 +250,19 @@ int command(char* cmd, char* argv[]) {
 
 /* ******************** exec_down() ******************* */
 /*!
-    \brief  Execute a command making a call to the down machine.
+    \brief  Evaluate and, if possible, execute the 
+            given command to the down machine.
     \param  vpunt Vector of pointers
     \return 0 = Command executed
     \return 1 = Command not found
+
+    Evaluate and, if possible, execute the given 
+    command to the down machine.
+
+    Handles also new commands since version 0.2.0,
+     i.e., new command will be handled here as extensions
+     and not as integrated shell commands 
+     (following OCP principle).
 */
 int exec_down(char *vpunt[]) {
     
@@ -263,38 +285,11 @@ int exec_down(char *vpunt[]) {
 
     // exec.
     else {
-        if (command(cmd,vpunt) == 0) {
+        int res = exec_command(cmd,vpunt);
+        if (res == 0) {
             printf("Executed %s\n",cmd);
             return 0;
         }
         else return 1;
-
-        //char cmdfq[100];
-        //if (which(cmd,cmdfq) != 0) 
-        //    return 1; // command not found.
-        //else {
-            //if (vpunt[1]) {
-            // making argv for down command.
-            //char* argv_tmp[] = {0,0,0,0,0}; // exec + 5 params (max).
-            // filling argv from vpunt, excluding exec.
-            //for(int i=1; vpunt[i]; ++i)
-            //    argv_tmp[i-1] = vpunt[i];
-
-            // calling procedure to execute commands.
-            
-        //} 
     }
-
-    // exec.
-    /*else if (strcmp(cmd,"exec") == 0) {
-        
-        }
-        else 
-            printf("%s\n","Usage: exec command");
-
-        return 0;
-    }
-
-    // command not found.
-    else return 1;*/
 }

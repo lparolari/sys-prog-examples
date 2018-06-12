@@ -5,6 +5,7 @@
 #include <sys/shm.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdlib.h>
 
 /*!
 \mainpage Esempio memoria condivisa

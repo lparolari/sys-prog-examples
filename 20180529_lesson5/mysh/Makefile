@@ -22,4 +22,4 @@ all: mysh docs
 mysh: mysh.o
 docs: ; mkdir -p docs;  doxygen
 
-clean: ; $(RM)  mysh  docs
+clean: ; $(RM) mysh mysh.o docs 
