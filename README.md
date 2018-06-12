@@ -1,7 +1,12 @@
 # sys-prog-examples
 
 This repository contains a collection of simple shell scripts and C, C++ programs, developed as solution of exercises given at lesson form Operative System course at UNIPR.
-Exercises are made for learning purposes: some details can be neglected. 
+
+Exercises are made for learning purposes: some details can be neglected.
+
+Start exploring from **report** folder. You could find it interesting!
+
+If this material helped please **star** this repo! Your simple click is a big thanks for me!
 
 ## Oraganization
 This repo contains a folder per lesson. Each folder contains solutions sources for the exercises, but for the first fivefour lessons the solution are integrated and documented in the Relation. The Relation is a paper containing some theorical and pratical aspects for system programming, with solved exercises.
@@ -15,10 +20,9 @@ git clone https://github.com/lparolari/sys-prog-examples.git
 cd sys-prog-examples
 ```
 
-# Author
+# Author(s)
 Luca Parolari <luca.parolari23@gmail.com>
-Alessandro Dal Palù <alessandroi.dalpalu@unipr.it>
+
+Alessandro Dal Palù <alessandroi.dalpalu@unipr.it> (Associate professor at UNIPR. He provides the material for the lessons and helds the lessons. He is the author of the slides.)
 
 I've solved the exercises from my onw, sometimes with the help of `man` and Google.
-Alessandro Dal Palù is the associate professor for this course at UNIPR. He provides the material for the lessons and helds the lessons.
-He is the author of the slides.
