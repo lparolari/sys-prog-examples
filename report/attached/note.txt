@@ -1,0 +1,10 @@
+EXERCISE NOTES
+
+Luca Parolari <luca.parolari23@gmail.com>
+2018/06/12
+
+Many exercises (usually from first lessons) are integrated in the
+report, i.e.  the source code, some usage example and documentation
+are writed in the report.
+Other exercises, instead, are only with source code and it is
+documented with doxygen.
